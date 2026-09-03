@@ -1,0 +1,231 @@
+import { SortItem, BalanceSheetChallenge, QuizQuestion } from './types';
+
+export const BASE_ITEMS: SortItem[] = [
+  { id: 'b1', desc: 'Increase in Cash', side: 'debit', amount: 500, cat: 'asset', level: 1 },
+  { id: 'b2', desc: 'Increase in Accounts Payable', side: 'credit', amount: 300, cat: 'liability', level: 1 },
+  { id: 'b3', desc: "Owner invests cash (Capital)", side: 'credit', amount: 1000, cat: 'equity', level: 1 },
+  { id: 'b4', desc: 'Sales Revenue earned', side: 'credit', amount: 800, cat: 'revenue', level: 1 },
+  { id: 'b5', desc: 'Rent Expense paid', side: 'debit', amount: 200, cat: 'expense', level: 1 },
+  { id: 'b6', desc: 'Increase in Inventory', side: 'debit', amount: 400, cat: 'asset', level: 1 },
+  { id: 'b7', desc: 'Bank Loan received', side: 'credit', amount: 2000, cat: 'liability', level: 1 },
+  { id: 'b8', desc: 'Salaries Expense', side: 'debit', amount: 600, cat: 'expense', level: 1 },
+  { id: 'b9', desc: 'Decrease in Cash (payment)', side: 'credit', amount: 150, cat: 'asset', level: 2 },
+  { id: 'b10', desc: 'Accounts Receivable increase', side: 'debit', amount: 350, cat: 'asset', level: 2 },
+  { id: 'b11', desc: 'Equipment purchased with cash', side: 'debit', amount: 1200, cat: 'asset', level: 2 },
+  { id: 'b12', desc: 'Service Income', side: 'credit', amount: 450, cat: 'revenue', level: 2 },
+  { id: 'b13', desc: 'Utilities Expense', side: 'debit', amount: 90, cat: 'expense', level: 2 },
+  { id: 'b14', desc: 'Owner drawings / withdrawal', side: 'debit', amount: 100, cat: 'equity', level: 2 },
+  { id: 'b15', desc: 'Interest Revenue', side: 'credit', amount: 50, cat: 'revenue', level: 3 },
+  { id: 'b16', desc: 'Prepaid Insurance increase', side: 'debit', amount: 240, cat: 'asset', level: 3 },
+  { id: 'b17', desc: 'Unearned Revenue received', side: 'credit', amount: 500, cat: 'liability', level: 3 },
+  { id: 'b18', desc: 'Depreciation Expense', side: 'debit', amount: 80, cat: 'expense', level: 3 },
+  { id: 'b19', desc: 'Accumulated Depreciation', side: 'credit', amount: 80, cat: 'asset', level: 3 },
+  { id: 'b20', desc: 'Notes Payable issued', side: 'credit', amount: 5000, cat: 'liability', level: 3 },
+  { id: 'b21', desc: 'Accounts Payable paid in cash', side: 'debit', amount: 300, cat: 'liability', level: 3 },
+  { id: 'b22', desc: 'Supplies Expense (used)', side: 'debit', amount: 75, cat: 'expense', level: 4 },
+  { id: 'b23', desc: 'Accrued Interest Payable', side: 'credit', amount: 40, cat: 'liability', level: 4 },
+  { id: 'b24', desc: 'Dividends declared', side: 'debit', amount: 200, cat: 'equity', level: 4 },
+  { id: 'b25', desc: 'Gain on sale of asset', side: 'credit', amount: 150, cat: 'revenue', level: 4 },
+];
+
+export const COMMON_ACCOUNTS = {
+  assets: ['Cash', 'Accounts Receivable', 'Inventory', 'Supplies', 'Prepaid Insurance', 'Equipment', 'Accum. Depreciation'],
+  liabilities: ['Accounts Payable', 'Notes Payable', 'Bank Loan', 'Unearned Revenue', 'Accrued Interest Payable'],
+  equity: ["Owner's Capital", "Owner's Drawings", 'Service Revenue', 'Sales Revenue', 'Interest Revenue', 'Rent Expense', 'Salaries Expense', 'Utilities Expense', 'Depreciation Exp.', 'Supplies Expense', 'Dividends'],
+};
+
+export const QUIZ_QUESTIONS: QuizQuestion[] = [
+  {
+    id: 'q1',
+    question: 'Which side increases an Asset account?',
+    options: ['Debit', 'Credit', 'Either side', 'Neither'],
+    correctIndex: 0,
+    explanation: 'Assets increase with debits (left side).',
+    level: 1,
+  },
+  {
+    id: 'q2',
+    question: 'Revenue accounts normally have a _____ balance.',
+    options: ['Debit', 'Credit', 'Zero', 'Negative'],
+    correctIndex: 1,
+    explanation: 'Revenue increases with credits, so normal balance is credit.',
+    level: 1,
+  },
+  {
+    id: 'q3',
+    question: 'When a business pays rent in cash, which is correct?',
+    options: [
+      'Debit Cash, Credit Rent Expense',
+      'Debit Rent Expense, Credit Cash',
+      'Debit Rent Expense, Debit Cash',
+      'Credit Rent Expense, Credit Cash',
+    ],
+    correctIndex: 1,
+    explanation: 'Expense increases (debit) and Cash decreases (credit).',
+    level: 2,
+  },
+  {
+    id: 'q4',
+    question: 'The accounting equation is:',
+    options: [
+      'Assets = Liabilities − Equity',
+      'Assets + Liabilities = Equity',
+      'Assets = Liabilities + Equity',
+      'Assets − Equity = Liabilities + Revenue',
+    ],
+    correctIndex: 2,
+    explanation: 'Fundamental equation: Assets = Liabilities + Equity.',
+    level: 1,
+  },
+  {
+    id: 'q5',
+    question: 'Owner invests $5,000 cash. The entry is:',
+    options: [
+      'Debit Capital $5,000; Credit Cash $5,000',
+      'Debit Cash $5,000; Credit Capital $5,000',
+      'Debit Cash $5,000; Debit Capital $5,000',
+      'Credit Cash $5,000; Credit Capital $5,000',
+    ],
+    correctIndex: 1,
+    explanation: 'Cash (asset) increases → Debit. Owner’s Capital (equity) increases → Credit.',
+    level: 2,
+  },
+  {
+    id: 'q6',
+    question: 'What does DEA-LER help you remember?',
+    options: [
+      'Debits: Expenses & Assets; Credits: Liabilities, Equity, Revenue',
+      'Debits only for assets',
+      'Credits increase everything',
+      'Nothing useful',
+    ],
+    correctIndex: 0,
+    explanation: 'DEA = Debits increase Expenses & Assets. LER = Credits increase Liabilities, Equity, Revenue.',
+    level: 1,
+  },
+  {
+    id: 'q7',
+    question: 'Unearned Revenue is classified as a:',
+    options: ['Asset', 'Liability', 'Equity', 'Expense'],
+    correctIndex: 1,
+    explanation: 'Cash received in advance for future services is a liability until earned.',
+    level: 3,
+  },
+  {
+    id: 'q8',
+    question: 'Recording depreciation typically involves:',
+    options: [
+      'Debit Accumulated Depreciation, Credit Expense',
+      'Debit Depreciation Expense, Credit Accumulated Depreciation',
+      'Debit Cash, Credit Depreciation',
+      'No entry needed',
+    ],
+    correctIndex: 1,
+    explanation: 'Expense is debited; the contra-asset Accumulated Depreciation is credited.',
+    level: 3,
+  },
+  {
+    id: 'q9',
+    question: 'In a journal entry, total debits must always equal total credits.',
+    options: ['True', 'False'],
+    correctIndex: 0,
+    explanation: 'Double-entry rule: every transaction balances (Debits = Credits).',
+    level: 1,
+  },
+  {
+    id: 'q10',
+    question: 'Paying an Accounts Payable with cash results in:',
+    options: [
+      'Increase in both assets and liabilities',
+      'Decrease in assets and decrease in liabilities',
+      'Increase in equity',
+      'No change to the accounting equation',
+    ],
+    correctIndex: 1,
+    explanation: 'Cash (asset) decreases, Accounts Payable (liability) decreases — equation still balances.',
+    level: 2,
+  },
+];
+
+export const DEFAULT_SHEETS: BalanceSheetChallenge[] = [
+  {
+    id: 'default-1',
+    title: 'Opening the Books',
+    statement: 'The owner invests $8,000 cash into the business. The company then buys $1,500 of supplies for cash and $3,200 of equipment on account (credit).',
+    level: 1,
+    author: 'System',
+    createdAt: new Date().toISOString(),
+    correctEntries: [
+      {
+        description: 'Owner investment of cash',
+        debits: [{ account: 'Cash', amount: 8000 }],
+        credits: [{ account: "Owner's Capital", amount: 8000 }],
+      },
+      {
+        description: 'Purchase supplies with cash',
+        debits: [{ account: 'Supplies', amount: 1500 }],
+        credits: [{ account: 'Cash', amount: 1500 }],
+      },
+      {
+        description: 'Purchase equipment on account',
+        debits: [{ account: 'Equipment', amount: 3200 }],
+        credits: [{ account: 'Accounts Payable', amount: 3200 }],
+      },
+    ],
+  },
+  {
+    id: 'default-2',
+    title: 'Revenue & Expenses',
+    statement: 'The business provides services and receives $4,500 cash. It also pays $1,200 in salaries and $350 for rent, both in cash.',
+    level: 2,
+    author: 'System',
+    createdAt: new Date().toISOString(),
+    correctEntries: [
+      {
+        description: 'Service revenue received in cash',
+        debits: [{ account: 'Cash', amount: 4500 }],
+        credits: [{ account: 'Service Revenue', amount: 4500 }],
+      },
+      {
+        description: 'Pay salaries',
+        debits: [{ account: 'Salaries Expense', amount: 1200 }],
+        credits: [{ account: 'Cash', amount: 1200 }],
+      },
+      {
+        description: 'Pay rent',
+        debits: [{ account: 'Rent Expense', amount: 350 }],
+        credits: [{ account: 'Cash', amount: 350 }],
+      },
+    ],
+  },
+  {
+    id: 'default-3',
+    title: 'Mixed Transactions',
+    statement: 'Customer pays $900 on their account receivable. Business takes a $5,000 bank loan. Owner withdraws $400 for personal use. Record $150 depreciation.',
+    level: 3,
+    author: 'System',
+    createdAt: new Date().toISOString(),
+    correctEntries: [
+      {
+        description: 'Collection of receivable',
+        debits: [{ account: 'Cash', amount: 900 }],
+        credits: [{ account: 'Accounts Receivable', amount: 900 }],
+      },
+      {
+        description: 'Bank loan received',
+        debits: [{ account: 'Cash', amount: 5000 }],
+        credits: [{ account: 'Bank Loan', amount: 5000 }],
+      },
+      {
+        description: 'Owner withdrawal',
+        debits: [{ account: "Owner's Drawings", amount: 400 }],
+        credits: [{ account: 'Cash', amount: 400 }],
+      },
+      {
+        description: 'Depreciation entry',
+        debits: [{ account: 'Depreciation Exp.', amount: 150 }],
+        credits: [{ account: 'Accum. Depreciation', amount: 150 }],
+      },
+    ],
+  },
+];
