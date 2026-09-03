@@ -78,5 +78,5 @@ export function getItemById(id: string): SortItem | undefined {
 }
 
 export function getSheetById(id: string): BalanceSheetChallenge | undefined {
-  return store.sheets.find((s) => s.id === id);
+  return store.sheets.find((s) => s.id === s.id);
 }
