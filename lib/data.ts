@@ -31,7 +31,7 @@ export const BASE_ITEMS: SortItem[] = [
 export const COMMON_ACCOUNTS = {
   assets: ['Cash', 'Accounts Receivable', 'Inventory', 'Supplies', 'Prepaid Insurance', 'Equipment', 'Accum. Depreciation'],
   liabilities: ['Accounts Payable', 'Notes Payable', 'Bank Loan', 'Unearned Revenue', 'Accrued Interest Payable'],
-  equity: ["Owner's Capital", "Owner's Drawings", 'Service Revenue', 'Sales Revenue', 'Interest Revenue', 'Rent Expense', 'Salaries Expense', 'Utilities Expense', 'Depreciation Exp.', 'Supplies Expense', 'Dividends'],
+  equity: ["Owner's Capital", "Owner's Drawings", 'Service Revenue', 'Sales Revenue', 'Interest Revenue', 'Rent Expense', 'Salaries Expense', 'Utilities Expense', 'Depreciation Exp.', 'Supplies Expense'],
 };
 
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
@@ -87,7 +87,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       'Credit Cash $5,000; Credit Capital $5,000',
     ],
     correctIndex: 1,
-    explanation: 'Cash (asset) increases → Debit. Owner’s Capital (equity) increases → Credit.',
+    explanation: 'Cash (asset) increases → Debit. Owner's Capital (equity) increases → Credit.',
     level: 2,
   },
   {
